@@ -200,7 +200,7 @@ def menu():
   os.system("clear")
   banner()
   print("\033[0;97m[*] Hello	: "+nama)
-  print("\033[0;97m[*] UID	: "+id)
+  print("\033[0;97m[*] User ID	: "+id)
   print("\033[0;92m───────────────────────────────────────────────")
   print("\033[0;93m[ Pilih Opsi ]")
   print("\033[0;97m[1] Dump ID Public/Friend")
