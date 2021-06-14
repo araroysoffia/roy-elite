@@ -462,7 +462,7 @@ class crack:
 				try:
 					while True:
 						try:
-							self.apk=raw_input("\033[0;97m[?] ID List File: ")
+							self.apk=raw_input("\033[0;93m[?] ID List File: ")
 							self.fs=open(self.apk).read().splitlines()
 							break
 						except Exception as e:
@@ -483,7 +483,7 @@ class crack:
 				try:
 					while True:
 						try:
-							self.apk=raw_input("\033[0;97m[?] ID List File: ")
+							self.apk=raw_input("\033[0;93m[?] ID List File: ")
 							self.fs=open(self.apk).read().splitlines()
 							break
 						except Exception as e:
@@ -563,7 +563,7 @@ class crack1:
 				try:
 					while True:
 						try:
-							self.apk=raw_input("\033[0;97m[?] ID List File: ")
+							self.apk=raw_input("\033[0;93m[?] ID List File: ")
 							self.fs=open(self.apk).read().splitlines()
 							break
 						except Exception as e:
@@ -584,7 +584,7 @@ class crack1:
 				try:
 					while True:
 						try:
-							self.apk=raw_input("\033[0;97m[?] ID List File: ")
+							self.apk=raw_input("\033[0;93m[?] ID List File: ")
 							self.fs=open(self.apk).read().splitlines()
 							break
 						except Exception as e:
@@ -664,7 +664,7 @@ class crack2:
 				try:
 					while True:
 						try:
-							self.apk=raw_input("\033[0;97m[?] ID List File: ")
+							self.apk=raw_input("\033[0;93m[?] ID List File: ")
 							self.fs=open(self.apk).read().splitlines()
 							break
 						except Exception as e:
@@ -685,7 +685,7 @@ class crack2:
 				try:
 					while True:
 						try:
-							self.apk=raw_input("\033[0;97m[?] ID List File: ")
+							self.apk=raw_input("\033[0;93m[?] ID List File: ")
 							self.fs=open(self.apk).read().splitlines()
 							break
 						except Exception as e:
@@ -765,7 +765,7 @@ class crack2:
 				try:
 					while True:
 						try:
-							self.apk=raw_input("\033[0;97m[?] ID List File: ")
+							self.apk=raw_input("\033[0;93m[?] ID List File: ")
 							self.fs=open(self.apk).read().splitlines()
 							break
 						except Exception as e:
@@ -786,7 +786,7 @@ class crack2:
 				try:
 					while True:
 						try:
-							self.apk=raw_input("\033[0;97m[?] ID List File: ")
+							self.apk=raw_input("\033[0;93m[?] ID List File: ")
 							self.fs=open(self.apk).read().splitlines()
 							break
 						except Exception as e:
@@ -866,7 +866,7 @@ class crack3:
 				try:
 					while True:
 						try:
-							self.apk=raw_input("\033[0;97m[?] ID List File: ")
+							self.apk=raw_input("\033[0;93m[?] ID List File: ")
 							self.fs=open(self.apk).read().splitlines()
 							break
 						except Exception as e:
@@ -887,7 +887,7 @@ class crack3:
 				try:
 					while True:
 						try:
-							self.apk=raw_input("\033[0;97m[?] ID List File: ")
+							self.apk=raw_input("\033[0;93m[?] ID List File: ")
 							self.fs=open(self.apk).read().splitlines()
 							break
 						except Exception as e:
