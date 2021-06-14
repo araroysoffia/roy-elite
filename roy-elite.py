@@ -405,7 +405,6 @@ def generate(text):
 				if "indonesia" in ips:
 					results.append("sayang")
 					results.append("bismillah")
-                                        results.append("123456")
 	return results
 def methode():
   os.system("clear")
