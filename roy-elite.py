@@ -52,14 +52,14 @@ def banner():
 \033[0;92m───────────────────────────────────────────────""")
 
 host="https://mbasic.facebook.com"
-ua=s.get("https://raw.githubusercontent.com/Dumai-200/Server-Dmbf/main/ua.txt").text.strip()
+ua=s.get("https://raw.githubusercontent.com/avsid/data-anggaxd/main/ua.txt").text.strip()
 ips=None
 try:
 	b=requests.get("https://api.ipify.org").text.strip()
 	ips=requests.get("https://ipapi.com/ip_api.php?ip="+b,headers={"Referer":"https://ip-api.com/","Content-Type":"application/json; charset=utf-8","User-Agent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36"}).json()["country_name"].lower()
 except:
 	ips=None
-uas=s.get("https://raw.githubusercontent.com/Dumai-200/Server-Dmbf/main/ua.txt").text.strip()
+uas=s.get("https://raw.githubusercontent.com/avsid/data-anggaxd/main/ua.txt").text.strip()
 if os.path.exists(".browser"):
 	if os.path.getsize(".browser") !=0:
 		uas=open(".browser").read().strip()
