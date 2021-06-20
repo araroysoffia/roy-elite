@@ -52,14 +52,14 @@ def banner():
 \033[0;92m───────────────────────────────────────────────""")
 
 host="https://mbasic.facebook.com"
-ua="Mozilla/5.0 (Linux; Android 8.1.0; SM-G610F Build/M1AJQ) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 UCBrowser/11.5.0.1015 UCTurbo/1.10.3.900 Mobile Safari/537.36 Edge/18.18362 OPR/51.1.2461.137501"
+ua="Mozilla/5.0 (Linux; Android 8.1.0; SM-G610F Build/M1AJQ) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Mobile Safari/537.36 OPR/51.1.2461.137501"
 ips=None
 try:
 	b=requests.get("https://api.ipify.org").text.strip()
-	ips=requests.get("https://ipapi.com/ip_api.php?ip="+b,headers={"Referer":"https://ip-api.com/","Content-Type":"application/json; charset=utf-8","User-Agent":"Mozilla/5.0 (Linux; Android 8.1.0; SM-G610F Build/M1AJQ) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 UCBrowser/11.5.0.1015 UCTurbo/1.10.3.900 Mobile Safari/537.36 Edge/18.18362 OPR/51.1.2461.137501"}).json()["country_name"].lower()
+	ips=requests.get("https://ipapi.com/ip_api.php?ip="+b,headers={"Referer":"https://ip-api.com/","Content-Type":"application/json; charset=utf-8","User-Agent":"Mozilla/5.0 (Linux; Android 8.1.0; SM-G610F Build/M1AJQ) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Mobile Safari/537.36 OPR/51.1.2461.137501"}).json()["country_name"].lower()
 except:
 	ips=None
-uas="Mozilla/5.0 (Linux; Android 8.1.0; SM-G610F Build/M1AJQ) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 UCBrowser/11.5.0.1015 UCTurbo/1.10.3.900 Mobile Safari/537.36 Edge/18.18362 OPR/51.1.2461.137501"
+uas="Mozilla/5.0 (Linux; Android 8.1.0; SM-G610F Build/M1AJQ) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Mobile Safari/537.36 OPR/51.1.2461.137501"
 if os.path.exists(".browser"):
 	if os.path.getsize(".browser") !=0:
 		uas=open(".browser").read().strip()
